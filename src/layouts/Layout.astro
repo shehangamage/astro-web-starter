@@ -15,3 +15,19 @@ import { languageTag } from '../paraglide/runtime';
     <slot />
   </body>
 </html>
+<script>
+  import { logConsent } from '@/libs/cookiesUtils';
+
+  // Store the initial consent state
+  let lastConsent = JSON.stringify(logConsent());
+
+  // Poll every 2 seconds for changes in the consent
+  setInterval(() => {
+    const currentConsent = JSON.stringify(logConsent());
+    if (currentConsent !== lastConsent) {
+      lastConsent = currentConsent;
+      // Dispatch a custom event to notify other components
+      document.dispatchEvent(new Event('cookieConsentChanged'));
+    }
+  }, 2000);
+</script>

@@ -1,5 +1,6 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "greeting": "Willkommen bei, {name}!",
-  "description": "Dies ist ein Beispiel für eine Willkommensseite für Ihr Astro-Projekt."
+  "description": "Dies ist ein Beispiel für eine Willkommensseite für Ihr Astro-Projekt.",
+  "cookieNotEnabled": "Cookies sind nicht aktiviert. Bitte akzeptieren Sie funktionale Cookies, um den Inhalt anzuzeigen."
 }

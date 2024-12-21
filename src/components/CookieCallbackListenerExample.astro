@@ -1,0 +1,41 @@
+---
+import * as m from '@/paraglide/messages.js';
+---
+
+<div class="flex flex-row justify-center">
+  <div class="container flex flex-col mx-4 md:mx-8 lg:mx-14">
+    <div id="booking-container" class="w-full"></div>
+    <p id="cookies-not-enabled" class="hidden">
+      {m.cookieNotEnabled}
+    </p>
+  </div>
+</div>
+
+<script>
+  import { logConsent } from '@/libs/cookiesUtils';
+  function loadIframeIfAllowed() {
+    const userConsent = logConsent();
+
+    const container = document.getElementById('booking-container');
+    const cookiesNotEnabled = document.getElementById('cookies-not-enabled');
+
+    if (userConsent.acceptedCategories.includes('functionality')) {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://astro.build/';
+      iframe.width = '100%';
+      iframe.height = '500';
+      container?.appendChild(iframe);
+      cookiesNotEnabled?.classList.add('hidden');
+    } else {
+      cookiesNotEnabled?.classList.remove('hidden');
+    }
+    return userConsent;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadIframeIfAllowed();
+    document.addEventListener('cookieConsentChanged', () => {
+      loadIframeIfAllowed();
+    });
+  });
+</script>
