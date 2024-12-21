@@ -4,5 +4,7 @@
   "description": "Dies ist ein Beispiel für eine Willkommensseite für Ihr Astro-Projekt.",
   "cookieNotEnabled": "Cookies sind nicht aktiviert. Bitte akzeptieren Sie funktionale Cookies, um den Inhalt anzuzeigen.",
   "dataProtectionTitle": "Datenschutz",
-  "imprintTitle": "Impressum"
+  "imprintTitle": "Impressum",
+  "openMenu": "Menü öffnen",
+  "contactUs": "Kontaktieren Sie uns"
 }

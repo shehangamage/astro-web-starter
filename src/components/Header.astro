@@ -1,0 +1,126 @@
+---
+import menu from '../config/menu.json';
+import { ChevronDown, Menu, MoveRight } from 'lucide-astro';
+import { getHref, isActiveLink } from '../libs/navigationUtils';
+const currentPath = Astro.url.pathname;
+import menuTrans from '../libs/menuTransUtils';
+const main = menuTrans(menu.main);
+import * as m from '../paraglide/messages';
+import LanguageChooser from './LanguageChooser.astro';
+---
+
+<nav class="bg-blue-950 text-white fixed w-full z-20 top-0 start-0">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href={getHref('/', currentPath)} class="flex items-center">
+      <h4 class="font-bold">LOGO</h4>
+    </a>
+    <div class="flex items-center gap-4">
+      <LanguageChooser id="language-dropdown-mobile" classNames="lg:hidden" />
+      <button
+        data-collapse-toggle="navbar-default"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg lg:hidden hover:bg-primary-7"
+        aria-controls="navbar-default"
+        aria-expanded="false"
+      >
+        <span class="sr-only">{m.openMenu}</span>
+        <Menu class="w-6 h-6" />
+      </button>
+    </div>
+    <div class="hidden w-full lg:block lg:w-auto" id="navbar-default">
+      <ul
+        class="flex flex-col p-4 lg:p-0 mt-4 gap-y-4 lg:flex-row lg:space-x-8 rtl:space-x-reverse"
+      >
+        {
+          main.map((item: any) =>
+            item.hasChildren ? (
+              <div class="relative">
+                <button
+                  id="company-dropdown-button"
+                  type="button"
+                  class:list={[
+                    'flex text-lg transition-colors duration-200 items-center gap-1 group ',
+                    {
+                      'text-blue-500 font-medium': isActiveLink(currentPath, item.name),
+                      'text-white hover:text-primary-5': !isActiveLink(currentPath, item.name),
+                    },
+                  ]}
+                  aria-controls="company-dropdown-menu"
+                  aria-expanded="false"
+                >
+                  {item.name}
+                  <ChevronDown class="text-white group-hover:text-primary-5" />
+                </button>
+                <div
+                  id="company-dropdown-menu"
+                  class="absolute -left-8 top-full z-10 mt-3 w-56 rounded-xl bg-white p-2 shadow-lg ring-1 ring-gray-900/5"
+                  hidden
+                >
+                  {item.children?.map((child: any) => (
+                    <a
+                      href={child.url}
+                      class="block p-4 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50"
+                    >
+                      {child.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={getHref(item.url, currentPath)}
+                class:list={[
+                  'flex text-lg transition-colors duration-200',
+                  {
+                    'text-blue-500 font-medium': isActiveLink(currentPath, item.url),
+                    'text-white hover:text-blue-500': !isActiveLink(currentPath, item.url),
+                  },
+                ]}
+              >
+                {item.name}
+              </a>
+            )
+          )
+        }
+
+        <li>
+          <!-- Contact Us Button -->
+          <a
+            href={getHref('/contact', currentPath)}
+            class:list={[
+              'text-lg transition-colors duration-200 ',
+              'text-neutral-11',
+              'bg-green-600 flex flex-row items-center px-4 py-1 rounded-md group',
+            ]}
+          >
+            {m.contactUs}
+            <MoveRight
+              class="ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </a>
+        </li>
+
+        <LanguageChooser id="language-dropdown-desktop" classNames="hidden lg:block" />
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownButton = document.getElementById('company-dropdown-button');
+    const dropdownMenu = document.getElementById('company-dropdown-menu');
+
+    dropdownButton?.addEventListener('click', () => {
+      const isExpanded = dropdownButton.getAttribute('aria-expanded') === 'true';
+      dropdownButton.setAttribute('aria-expanded', (!isExpanded).toString());
+      if (dropdownMenu) {
+        dropdownMenu.hidden = isExpanded;
+      }
+    });
+
+    // dropdownMenu?.addEventListener('mouseleave', () => {
+    //   dropdownMenu.hidden = true;
+    // });
+  });
+</script>

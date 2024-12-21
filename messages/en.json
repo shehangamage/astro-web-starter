@@ -4,5 +4,7 @@
   "description": "This is a sample welcome page for your Astro project.",
   "cookieNotEnabled": "Cookies are not enabled. Please accept functional cookies to see the content.",
   "dataProtectionTitle": "Data Protection",
-  "imprintTitle": "Imprint"
+  "imprintTitle": "Imprint",
+  "openMenu": "Open Menu",
+  "contactUs": "Contact Us"
 }

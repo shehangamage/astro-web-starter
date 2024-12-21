@@ -1,22 +1,26 @@
 {
   "main": [
     {
-      "name": "dataProtection",
+      "name": "dataProtectionTitle",
       "url": "/data-privacy"
     },
     {
-      "name": "imprint",
+      "name": "imprintTitle",
       "url": "/imprint"
+    },
+    {
+      "name": "contactUs",
+      "url": "/contact"
     }
   ],
 
   "footer": [
     {
-      "name": "dataProtection",
+      "name": "dataProtectionTitle",
       "url": "/data-privacy"
     },
     {
-      "name": "imprint",
+      "name": "imprintTitle",
       "url": "/imprint"
     }
   ]

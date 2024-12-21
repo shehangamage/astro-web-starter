@@ -1,4 +1,5 @@
 ---
+import Header from '@/components/Header.astro';
 import { languageTag } from '../paraglide/runtime';
 ---
 
@@ -12,6 +13,7 @@ import { languageTag } from '../paraglide/runtime';
     <title>Astro Basics</title>
   </head>
   <body>
+    <Header />
     <slot />
   </body>
 </html>
