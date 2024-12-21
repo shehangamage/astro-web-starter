@@ -1,0 +1,5 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "greeting": "Willkommen bei, {name}!",
+  "description": "Dies ist ein Beispiel für eine Willkommensseite für Ihr Astro-Projekt."
+}
