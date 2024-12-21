@@ -1,7 +1,7 @@
 ---
 import CookieCallbackListenerExample from '@/components/CookieCallbackListenerExample.astro';
-import Welcome from '../../components/Welcome.astro';
-import Layout from '../../layouts/Layout.astro';
+import Welcome from '@/components/Welcome.astro';
+import Layout from '@/layouts/Layout.astro';
 
 export async function getStaticPaths() {
   return [{ params: { lang: 'en' } }, { params: { lang: 'de' } }];

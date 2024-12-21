@@ -7,10 +7,6 @@
     {
       "name": "imprintTitle",
       "url": "/imprint"
-    },
-    {
-      "name": "contactUs",
-      "url": "/contact"
     }
   ],
 
@@ -22,6 +18,10 @@
     {
       "name": "imprintTitle",
       "url": "/imprint"
+    },
+    {
+      "name": "contactUs",
+      "url": "/contact"
     }
   ]
 }

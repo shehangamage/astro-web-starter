@@ -1,10 +1,16 @@
 ---
+import Layout from '@/layouts/Layout.astro';
+import * as m from '@/paraglide/messages.js';
+
 export async function getStaticPaths() {
   return [{ params: { lang: 'en' } }, { params: { lang: 'de' } }];
 }
 ---
 
-<div>
-  <h1>Contact</h1>
-  <p>Get in touch with us!</p>
-</div>
+<Layout title={m.contactUs}>
+  <div class="flex flex-col gap-y-14 md:gap-y-8 bg-white">
+    <div class="mt-16"></div>
+    <h1>Contact</h1>
+    <p>Get in touch with us!</p>
+  </div>
+</Layout>

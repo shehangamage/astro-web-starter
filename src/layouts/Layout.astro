@@ -1,6 +1,8 @@
 ---
 import Header from '@/components/Header.astro';
 import { languageTag } from '../paraglide/runtime';
+import config from '../config/config.json';
+import { plainify } from '../libs/textConverters';
 ---
 
 <!doctype html>
@@ -10,6 +12,8 @@ import { languageTag } from '../paraglide/runtime';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <!-- meta-description -->
+    <meta name="description" content={plainify(config.metadata.meta_description)} />
     <title>Astro Basics</title>
   </head>
   <body>
