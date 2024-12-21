@@ -1,0 +1,28 @@
+{
+  "site": {
+    "title": "Shehan.dev",
+    "base_url": "https://shenan.dev",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.svg",
+    "logo": "/images/logo.png",
+    "logo_width": "47",
+    "logo_height": "47",
+    "logo_text": "logo"
+  },
+
+  "params": {
+    "email": "sales@example.io",
+    "location": "Sri Lanka",
+    "phone": "<will be updated in a few days>",
+    "contact_form_action": "#"
+  },
+
+  "metadata": {
+    "meta_author": "Shehan",
+    "meta_image": "/images/logo.png",
+    "meta_description": "bla bla bla",
+    "meta_keywords": ["bla", "bla", "bla"],
+    "meta_application_name": "shehan-portofolio"
+  }
+}

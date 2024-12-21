@@ -2,5 +2,7 @@
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "greeting": "Welcome to, {name}!",
   "description": "This is a sample welcome page for your Astro project.",
-  "cookieNotEnabled": "Cookies are not enabled. Please accept functional cookies to see the content."
+  "cookieNotEnabled": "Cookies are not enabled. Please accept functional cookies to see the content.",
+  "dataProtectionTitle": "Data Protection",
+  "imprintTitle": "Imprint"
 }

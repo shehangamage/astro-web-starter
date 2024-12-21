@@ -1,0 +1,44 @@
+---
+import Prose from '../../components/Prose.astro';
+import Layout from '../../layouts/Layout.astro';
+import * as m from '../../paraglide/messages.js';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPolicies: CollectionEntry<'policies'>[] = await getCollection('policies');
+
+  // Generate paths for each language and include policy content in `props`
+  const pathsWithProps = allPolicies.map((policy) => ({
+    params: {
+      lang: policy.data.lang, // Use the `lang` from the markdown frontmatter
+    },
+    props: {
+      policy, // Include the full policy content
+    },
+  }));
+
+  // Add the default static paths as a fallback
+  const defaultPaths = [{ params: { lang: 'en' } }, { params: { lang: 'de' } }];
+
+  console.log('pathsWithProps', pathsWithProps);
+
+  return [...defaultPaths, ...pathsWithProps];
+}
+
+const { policy } = Astro.props;
+const { Content } = await policy.render();
+---
+
+<Layout title={m.dataProtectionTitle()}>
+  <div class="flex flex-row bg-white justify-center">
+    <div
+      class="container flex flex-col gap-y-14 md:gap-y-20 mx-4 md:mx-8 lg:mx-14 my-5 md:my-10 lg:my-14 xl:my-12 2xl:my-20"
+    >
+      <!-- <h2>{lang}</h2> -->
+      <Prose>
+        <Content />
+      </Prose>
+    </div>
+  </div>
+</Layout>

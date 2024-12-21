@@ -1,0 +1,23 @@
+{
+  "main": [
+    {
+      "name": "dataProtection",
+      "url": "/data-privacy"
+    },
+    {
+      "name": "imprint",
+      "url": "/imprint"
+    }
+  ],
+
+  "footer": [
+    {
+      "name": "dataProtection",
+      "url": "/data-privacy"
+    },
+    {
+      "name": "imprint",
+      "url": "/imprint"
+    }
+  ]
+}
