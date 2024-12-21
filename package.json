@@ -19,6 +19,7 @@
     "vanilla-cookieconsent": "^3.0.1"
   },
   "devDependencies": {
-    "@inlang/paraglide-js": "1.11.3"
+    "@inlang/paraglide-js": "1.11.3",
+    "@tailwindcss/typography": "^0.5.15"
   }
 }
